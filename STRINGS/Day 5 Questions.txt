@@ -1,0 +1,77 @@
+/*********************************************************************************************
+1. Write a program to accept and display string (Memory must be allocated dynamically) 
+   with out using functions 
+
+Sample i/o
+
+Input : rnsit
+Output: rnsit
+
+#include<stdio.h>
+#include<stdlib.h>
+#define size 5
+int main(){
+    char *arr;int i;
+    arr=(char*)malloc(size);
+    printf("enter the strings\n");
+    scanf("%s",arr);
+    printf("the entered string is \n");
+    printf("%s",arr);
+    return 0;
+}
+/*********************************************************************************************
+
+2.  Write a program to accept and display string (Memory must be allocated dynamically)
+   using functions 
+
+Sample i/o
+
+Input : rnsit
+Output: rnsit
+
+#include<stdio.h>
+#include<stdlib.h>
+
+void accept(char *str){
+	scanf("%s",str);
+}
+void display(char *str){
+    printf("%s",str);
+}
+int main()
+{
+	char *str;
+	str=(char*)malloc(sizeof(char));
+	printf("Enter the string\n");
+	accept(str);
+	printf("the entered string is ");
+	display(str);
+}
+/*********************************************************************************************
+3. Write a program to split string in to words with out using inbuilt function 
+
+Sample i/o
+
+Input : india is great
+Output:                                                                                     
+	india                                                                                                              
+	is                                                                                                                 
+	great
+
+#include<stdio.h>
+#include<stdlib.h>
+void main()
+{
+	char *str;int i;
+	str=(char*)malloc(sizeof(char));
+	printf("Enter the string\n");
+	gets(str);
+	printf("the entered string is \n");
+	for(i=0;i<str[i]!='\0';i++){
+		if(str[i]==' ')
+			printf("\n");
+		else
+			printf("%c",str[i]);
+	}
+}
+/*********************************************************************************************

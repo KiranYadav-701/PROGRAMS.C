@@ -1,0 +1,167 @@
+KIRAN YADAV S
+1RN19CS067
+CSE 4B
+
+
+1:
+
+#include<stdio.h>
+struct book{
+    char title[10];
+    char author[10];
+    int id;
+    float price;
+};
+int main()
+{
+    struct book b;
+    printf("enter the book title,author name, book id and price\n");
+    scanf("%s%s%d%f",&b.title,&b.author,&b.id,&b.price);
+    printf("\n");
+    printf(" book title :%s \n author name:%s \n book id: %d \n price: %.2f\n ",b.title,b.author,b.id,b.price);
+    return 0;
+}
+
+output:
+
+enter the book title,author name, book id and price                                                                                                                                  
+sam                                                                                                                                                                                  
+ram                                                                                                                                                                                  
+789                                                                                                                                                                                  
+99                                                                                                                                                                                   
+                                                                                                                                                                                     
+ book title :sam                                                                                                                                                                     
+ author name:ram                                                                                                                                                                     
+ book id: 789                                                                                                                                                                        
+ price: 99.000000      
+
+
+2:
+
+
+#include <stdio.h>
+#include<string.h>
+struct book
+{
+    char title[10];
+    char author[10];
+    float price;
+    int no_pages;
+};
+
+void read(struct book *);
+void print(struct book *);
+
+int main()
+{
+   struct book bk[3];
+   struct book* sptr;
+   for(int i=1;i<=2;i++)
+   { 
+   	sptr=&(bk[i]);	
+   	read(sptr);
+   }
+   printf("To update price: enter title and then price\n");
+   char title[10];
+   float price;
+   int flag=0;
+   for(int i=1;i<=2;i++)
+   {
+   	   scanf("%s",title);
+  	   scanf("%f",&price);
+   	for(int i=1;i<=2;i++)
+   	{
+		if(strcmp(bk[i].title,title)==0)
+		{
+			bk[i].price=price;
+			flag=1;
+			break;
+		}
+   
+  	 }
+  	 if(flag==0){printf("book not found!");}
+  }
+
+   printf("The book details are\n");
+   for(int i=1;i<=2;i++)
+   { 
+   	 sptr=&(bk[i]);	
+   	 print(sptr);
+   }
+   return 0;     
+}      
+void read(struct book* ptr) 
+{
+     printf("Enter the title, author name, and number of pages in order\n");
+     scanf("%s%s%d",ptr->title,ptr->author,&(ptr->no_pages));
+}
+void print(struct book* ptr) 
+{
+    printf("\n%s\t%s\t%.2f\t%d\n",ptr->title,ptr->author,(ptr->price),(ptr->no_pages)); 
+}
+
+
+output:
+
+Enter the title, author name, and number of pages in order                                                                                                                           
+sky fry 99                                                                                                                                                                           
+Enter the title, author name, and number of pages in order                                                                                                                           
+dry med 199                                                                                                                                                                          
+To update price: enter title and then price                                                                                                                                          
+sky 99                                                                                                                                                                               
+dry 250                                                                                                                                                                              
+The book details are                                                                                                                                                                 
+                                                                                                                                                                                     
+sky     fry     99.00   99                                                                                                                                                           
+                                                                                                                                                                                     
+dry     med     250.00  199   
+
+
+
+3:
+
+#include <stdio.h>
+
+struct book
+{
+    char title[10];
+    char author[10];
+    float price;
+    int no_pages;
+};
+
+void read(struct book *);
+void print(struct book *);
+
+int main()
+{
+   struct book bk;
+   struct book *sptr=&bk;
+   read(sptr);
+   print(sptr);
+   return 0;     
+}      
+   
+ void read(struct book *sptr) 
+{
+     printf("Enter the title, author name, price and number of pages in order \n");
+     scanf("%s%s%f%d",sptr->title,sptr->author,&(sptr->price),&(sptr->no_pages));                     
+}
+void print(struct book *sptr) 
+{
+    printf("The book details are\n");
+    printf("\n%s\t%s\t%f\t%d",sptr->title,sptr->author,sptr->price,sptr->no_pages); 
+}
+
+
+output:
+
+
+Enter the title, author name, price and number of pages in order                                                                                                                     
+glory                                                                                                                                                                                
+sams                                                                                                                                                                                 
+349                                                                                                                                                                                  
+272                                                                                                                                                                                  
+The book details are                                                                                                                                                                 
+                                                                                                                                                                                     
+glory   sams    349.000000      272  

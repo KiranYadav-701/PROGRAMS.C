@@ -1,0 +1,221 @@
+**********************************************************************************
+1. Complete the following code segment with appropriate C statements
+***********************************************************************************
+#include <stdio.h>
+
+int main()
+{
+    // array declaration 
+    int arr[10], arr_size,i,sum=0,sam=0;
+    printf("Enter the number of elements \n");
+    scanf("%d",&arr_size);
+    printf("Enter the array elements \n");
+    for(i=0;i<arr_size;i++)
+    {
+         scanf("%d",&arr[i]);
+    }
+    printf("The elements are \n");
+        for(i=0;i<arr_size;i++)
+    {
+         printf("%d\n",arr[i]);
+    }
+    printf("\nThe even numbers in the array are\n");
+    for(i=0;i<arr_size;i++)
+    {
+         if(arr[i]%2==0)
+            printf("%d\t", arr[i]);
+    }
+    for(i=0;i<arr_size;i++)
+    {
+         if(arr[i]%2==0)
+            sum=sum+arr[i];
+    }
+    printf("\nThe sum of even numbers in the array is %d\n",sum);
+    printf("\nThe odd numbers in the array are\n");
+    for(i=0;i<arr_size;i++)
+    {
+         if(arr[i]%2!=0)
+            printf("%d\t", arr[i]);
+    }
+    for(i=0;i<arr_size;i++)
+    {
+         if(arr[i]%2!=0)
+            sam=sam+arr[i];
+    }
+    printf("\nThe odd of even numbers in the array is %d\n",sam);
+    return 0;
+}
+
+
+
+**********************************************************************************
+2. Complete the following program using the tempalte
+***********************************************************************************
+#include <stdio.h>
+void read_arr(int arr[],int );
+void print_arr(int arr[],int );
+void print_odd(int arr[],int );
+int main()
+{
+    // array declaration 
+    int arr[10], arr_size;
+    printf("Enter the number of elements\n");
+    scanf("%d", &arr_size);
+    read_arr(arr, arr_size);
+    printf("The array elements are \n");
+    print_arr(arr, arr_size);
+    printf("The  odd elements are\n");
+    print_odd(arr, arr_size);
+}  
+void read_arr(int arr[],int arr_size)
+{
+    int i;
+    printf("Enter array elements\n");
+    for(i=0;i<arr_size;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+}
+void print_arr(int arr[],int arr_size)
+{
+    int i;
+    for(i=0;i<arr_size;i++)
+    {
+       printf("%d",arr[i]); 
+    }
+    
+}
+void print_odd(int arr[],int arr_size)
+{
+    int i;
+    for(i=0;i<arr_size;i++)
+    {
+        if(arr[i]%2!=0)
+        {
+            printf("%d",arr[i]); 
+        }
+    }
+}
+
+
+
+***********************************************************************************
+3. Complete the following code segment with appropriate C statements
+***********************************************************************************
+#include <stdio.h>
+//function prototypes 
+void read_arr(    );
+void print_arr(    );
+int ret_max(    );
+int main()
+{
+    // array declaration 
+    int arr[10], arr_size;
+    printf("Enter the number of elements \n");
+    scanf("%d", &arr_size);
+    printf("Enter the elements\n");
+    read_arr(arr, arr_size);
+    printf("The array elements are \n");
+    print_arr(arr, arr_size);
+    printf("\nThe  maximum element in the arrays is %d\n", ret_max(arr, arr_size));
+    return 0;
+}  
+
+void read_arr( ) 
+{
+    for(    )
+    {
+         scanf(    );
+    }
+}
+    
+void print_arr( ) 
+{
+    for( )
+    {
+         printf(   );
+    }
+}
+    
+ int ret_max( )
+ {
+    int max=arr[0];
+    .
+    .
+    .
+
+    return max;
+ }
+**********************************************************************************
+4. Write a C program to  search a specified eleent in array of random elements.
+if the search  is successful then,  the program should  display the following
+1. Search is successful 
+2. the position of first occurance
+3. the position of the last occurance 
+
+Example 1
+given array  {11,22,33,33,66,55,88,11,33,11}; and key ==11
+o/p   
+Search Successfull                                                                                                  
+The first occuracne of the key is = 1                                                                               
+The last occuracne of the key is = 10    
+
+Example 2
+given array   {22,33,33,66,55,88,11,33,11,55}; and key =33
+o/p
+Search Successfull                                                                                                  
+The first occuracne of the key is = 2                                                                               
+The last occuracne of the key is = 8     
+
+Example 3
+given array   {22,33,33,66,55,88,11,33,11,55}; and key =88
+o/p
+Search Successfull                                                                                                 
+The first occuracne of the key is = 6                                                                              
+The last occuracne of the key is = 6    
+
+Example 4
+given array   {22,33,33,66,55,88,11,33,11,55}; and key =99
+o/p
+Search Failure  
+
+***********************************************************************************
+//  program to find first and last occurrence of
+// an elements in given sorted array
+#include<stdio.h>
+
+void findFirstAndLast(int arr[], int n, int x)
+{
+    int first = -1, last = -1;
+    for (int i = 0; i < n; i++) {
+        if (x != arr[i])
+            continue;
+        if (first == -1)
+            first = i;
+        last = i;
+    }
+    if (first != -1)
+        {
+            printf("First Occurrence = %d\n", first);
+            printf("Last Occurrence = %d\n",last);
+        }
+    else
+        printf("search failure\n");
+}
+ 
+int main()
+{
+    int arr[10],n,x,i;
+    printf("enter array size\n");
+    scanf("%d",&n);
+    printf("enter array elements\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    printf("enter key to search\n");
+    scanf("%d",&x);
+
+    findFirstAndLast(arr, n, x);
+    return 0;
+}

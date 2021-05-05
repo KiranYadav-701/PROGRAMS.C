@@ -1,0 +1,136 @@
+kiran yadav s
+1rn19cs067 4sem ,B
+
+
+/*********************************************************************************
+1. Write a program to return the ascii value for a character 
+input : A  output: 65
+input : a  output: 97
+input :    output: 32   (Spac)
+
+#include <stdio.h>
+
+int main()
+{
+    char str;
+    printf("enter character \n");
+    scanf("%c",&str);
+    printf("ascii value is %d\n",str);
+    return 0;
+}
+
+/*********************************************************************************
+2. Write a program that returns the max occured character in the given line of input 
+   ascii for space is 32
+
+input : every example is unique
+output: every example is unique
+
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+	char str[50];
+	int i,j,len,max;
+	printf("Enter the input line\n");
+	gets(str);
+	len=strlen(str);
+	int freq[len];
+	char maxchar=str[0];
+	for(i=0;i<len;i++)
+	{
+		freq[i]=1;
+		for(j=i+1;j<len;j++)
+		{
+			if(str[i]==str[j]&&str[i]!=' '&&str[i]!='0'){
+				freq[i]++;
+				str[j]='0';
+			}
+		}
+
+	}
+	max=freq[0];
+	for(i=0;i<len;i++){
+		if(max<freq[i]){
+			max=freq[i];
+			maxchar=str[i];
+		}
+	}
+	printf("maximum occuring character is %c\n",maxchar);
+
+}
+
+
+/*********************************************************************************
+3. Write a program that returns the word count in a given sentence 
+   ascii for space is 32
+ input:every exampl is unique in its way
+ output : 7 
+
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+	char str[50];
+	int i,j,count=1;
+	printf("Enter the string\n");
+	gets(str);
+	
+	for(i=0;str[i]!='\0';i++)
+	{
+		if(str[i]==' ')
+			count++;
+	}
+	printf("no. of words are %d\n",count);
+}
+
+/*********************************************************************************
+4.  Number game  :: Input an element ( string, number etc) and if the input is a number 
+then accept, if the input is "done" then stop  accepting, 
+otherwise accept the next element and so on.
+Use the ele,ent "done" to stop accepting input and return the largest
+ and smallest element recieved 
+
+Sample input pattern    111 345 hello  356 678 111 999 bye 165 done
+output: the smallest is 111 the largest is 999 
+
+Hint Explore the usage of atoi function 
+don use integer array !!!!!!
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main () {
+   int val,max=0,min=9999;
+   char str[20];
+   
+   while(1)
+   {
+       
+        printf("enter\n");
+        scanf("%s",str);
+   
+        val = atoi(str);
+        int k=strcmp(str,"done");
+        if(k==0)
+        {   printf("%d\n",max);
+            printf("%d\n",min);
+            exit(0);
+        }
+        if(val==0)
+            continue;
+        else 
+        {
+            if(val>max)
+                max=val;
+            if(val<min)
+              min=val;
+            continue;
+        }
+            
+   }
+   
+
+}
+/*********************************************************************************

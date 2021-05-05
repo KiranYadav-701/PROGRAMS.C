@@ -1,0 +1,109 @@
+USN : 1RN19CS067
+NAME : KIRAN YADAV S
+SEM : CSE,4 sem
+
+
+
+/*****************************************************************************************************
+Preliminary :: Write C functions ( userdefined) to implement basic string manipulations such as 
+string length, string compare, string concatination, finsing sub string etc 
+/*****************************************************************************************************
+
+/*****************************************************************************************************
+1. Write a program to reverse individual words in a given line of string 
+
+Input :  india is great 
+output : aidni si taerg  
+****************************************************************************************************
+Answer:
+#include <stdio.h>
+int main()
+{
+   char s[1000], r[1000];
+   int begin, end, count = 0;
+
+   printf("Input a string\n");
+   gets(s);
+
+   while (s[count] != '\0')
+      count++;
+
+   end = count - 1;
+
+   for (begin = 0; begin < count; begin++) {
+      r[begin] = s[end];
+      end--;
+   }
+
+   r[begin] = '\0';
+   printf("the reversed string is :\n");
+
+   printf("%s\n", r);
+
+   return 0;
+}
+*****************************************************************************************************
+ 2.	Write a program to check if two given String is the anagram of 
+	each other( string is saved in a structure)
+
+struct str
+{
+    char cont[100];
+};
+
+An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, 
+typically using all the original letters exactly once. 
+Example
+Race =care
+Eleven plus two = Twelve plus one
+Note inbuilt functions strcmp,strlen & strcpy can be used */
+*****************************************************************************************************
+Answer:
+
+#include <stdio.h>
+#include<string.h>
+
+struct string{
+    char str1[100],str2[100];
+}str;
+ 
+
+int main()
+{
+  int len1,len2,i,j,len,found=0;
+  printf("ENTER THE FIRST AND SECOND STRING : \n");
+  scanf("%s%s",str.str1,str.str2);
+  len1=strlen(str.str1);
+  len2=strlen(str.str2);
+  if(len1==len2)
+  {
+    len=len1;
+    for(i=0;i<len;i++)
+    {
+        for(j=0;j<len;j++)
+        {
+            if((str.str1[i])==(str.str2[j]))
+            {
+                found=1;
+                break;
+            }
+        }
+        if(found==0)
+        {
+          printf("THE TWO STRINGS ARE  NOT ANAGRAMS.\n");
+          return 0;
+        }
+    }
+    
+    if(found!=0)
+    {
+        printf("THE TWO STRINGS ARE ANAGRAMS.\n");
+        return 0;
+    }
+  }
+  else
+  {
+    printf("THE TWO STRING'S SIZE ARE DIFFERENT.\n");
+    return 0;
+  }
+}
